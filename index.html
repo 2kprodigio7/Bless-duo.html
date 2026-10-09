@@ -170,7 +170,7 @@ const SupabaseAdapter = {
   h: (x = {}) => ({ apikey: SUPABASE_KEY, ...(SUPABASE_KEY.startsWith('eyJ') ? { Authorization: 'Bearer ' + SUPABASE_KEY } : {}), ...x }),
   async load() {
     const r = await fetch(`${SUPABASE_URL}/rest/v1/store?id=eq.main&select=data`, { headers: SupabaseAdapter.h() });
-    if (!r.ok) throw new Error(r.status); const j = await r.json(); return j[0] ? j[0].data : null;
+    if (!r.ok) throw new Error(r.status + ' ' + (await r.text()).slice(0, 220)); const j = await r.json(); return j[0] ? j[0].data : null;
   },
   async save(d, pass) { const { orders, ...x } = d; await rpc('save_store', { p_pass: pass, p_data: { ...x, settings: { ...x.settings, adminPass: undefined } } }); },
   async uploadImage(file) {
@@ -184,14 +184,14 @@ const SupabaseAdapter = {
 const useSB = () => !!(SUPABASE_URL && SUPABASE_KEY);
 const rpc = async (fn, args) => {
   const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, { method: 'POST', headers: SupabaseAdapter.h({ 'Content-Type': 'application/json' }), body: JSON.stringify(args) });
-  if (!r.ok) throw new Error(r.status); const t = await r.text(); return t ? JSON.parse(t) : null;
+  if (!r.ok) throw new Error(r.status + ' ' + (await r.text()).slice(0, 220)); const t = await r.text(); return t ? JSON.parse(t) : null;
 };
 const lo = () => { try { return JSON.parse(localStorage.getItem('bd_orders') || '[]'); } catch { return []; } };
 const Store = {
   failed: false,
   async load() {
     let s = null;
-    if (useSB()) { try { s = await SupabaseAdapter.load(); } catch { this.failed = true; } } else s = await LocalAdapter.load();
+    if (useSB()) { try { s = await SupabaseAdapter.load(); } catch (e) { this.failed = true; this.err = e.message; } } else s = await LocalAdapter.load();
     const d = structuredClone(DEFAULTS);
     return s ? { ...d, ...s, settings: { ...d.settings, ...s.settings } } : d;
   },
@@ -224,9 +224,9 @@ let C = []; try { C = JSON.parse(localStorage.getItem('bd_cart') || '[]'); } cat
 const SIZES = ['PP', 'P', 'M', 'G', 'GG', 'XG', 'Único'], FONTS = ['Inter', 'Poppins', 'Montserrat', 'Manrope', 'Playfair Display'];
 
 function toast(m, t = 'ok') {
-  const e = document.createElement('div'); e.className = 'toast ' + t; e.textContent = m; $('#toasts').append(e); setTimeout(() => e.remove(), 2800);
+  const e = document.createElement('div'); e.className = 'toast ' + t; e.textContent = m; $('#toasts').append(e); setTimeout(() => e.remove(), 2800 + m.length * 45);
 }
-async function persist() { try { await Store.save(S, ADMPASS); return true; } catch { toast('Não foi possível salvar. Com Supabase, confira URL/Key e a conexão; sem Supabase, o armazenamento do navegador pode estar cheio.', 'err'); return false; } }
+async function persist() { try { await Store.save(S, ADMPASS); return true; } catch (e) { toast('Não foi possível salvar (' + (e.message || e) + '). Com Supabase, confira URL/Key e a conexão; sem Supabase, o armazenamento do navegador pode estar cheio.', 'err'); return false; } }
 const saveCart = () => { try { localStorage.setItem('bd_cart', JSON.stringify(C)); } catch { } renderCart(); };
 
 /* ---------- Tema e página ---------- */
@@ -327,12 +327,13 @@ function checkout() {
   if (its.some(c => !c.p.available)) return toast('Remova os produtos indisponíveis do carrinho', 'err');
   closeAll();
   modal(`<h2>Finalizar pelo WhatsApp</h2><div style="margin:14px 0">${its.map(c => `<p>${c.qty}× ${esc(c.p.name)} <span class="mut">${esc(c.color)} ${c.size !== '-' ? c.size : ''}</span> — ${brl(price(c.p) * c.qty)}</p>`).join('')}<p class="tot" style="margin-top:12px"><span>Total</span><span>${brl(cartTotal())}</span></p></div>
-  <div id="ck"><label class="fld"><span>Seu nome</span><input id="ckn" autocomplete="name"></label><label class="fld"><span>Observações (opcional)</span><textarea id="cko"></textarea></label><p class="mut" style="margin-bottom:14px">Seu pedido completo será enviado no WhatsApp da loja. O PIX para pagamento será enviado por lá.</p><button class="btn full" data-act="mkorder">Enviar pedido pelo WhatsApp</button></div>`);
+  <div id="ck"><label class="fld"><span>Seu nome</span><input id="ckn" autocomplete="name"></label><label class="fld"><span>Endereço de entrega (rua, número, bairro, cidade)</span><textarea id="cka" autocomplete="street-address"></textarea></label><label class="fld"><span>Observações (opcional)</span><textarea id="cko"></textarea></label><p class="mut" style="margin-bottom:14px">Seu pedido completo será enviado no WhatsApp da loja. O PIX para pagamento será enviado por lá.</p><button class="btn full" data-act="mkorder">Enviar pedido pelo WhatsApp</button></div>`);
   MK = async () => {
     const nm = $('#ckn').value.trim(); if (!nm) return toast('Informe seu nome', 'err');
+    const ad = $('#cka').value.trim(); if (!ad) return toast('Informe o endereço de entrega', 'err');
     const n = S.settings.whatsapp.replace(/\D/g, ''); if (!n) return toast('WhatsApp da loja não configurado', 'err');
     $('[data-act=mkorder]').setAttribute('disabled', '');
-    const o = { id: uid() + uid(), code: uid().slice(0, 6).toUpperCase(), date: new Date().toISOString(), name: nm, notes: $('#cko').value.trim(), total: cartTotal(), status: 'Novo',
+    const o = { id: uid() + uid(), code: uid().slice(0, 6).toUpperCase(), date: new Date().toISOString(), name: nm, address: ad, notes: $('#cko').value.trim(), total: cartTotal(), status: 'Novo',
       items: its.map(c => ({ pid: c.pid, name: c.p.name, color: c.color, size: c.size, qty: c.qty, price: price(c.p) })) };
     try { await Store.addOrder(o); } catch { toast('Não foi possível registrar o pedido no sistema. Avise a loja.', 'err'); }
     const u = `https://wa.me/${n}?text=${encodeURIComponent(waMsg(o))}`;
@@ -341,7 +342,7 @@ function checkout() {
   };
 }
 function waMsg(o) {
-  return `Olá, ${S.settings.brand}! Gostaria de finalizar meu pedido #${o.code}.\n\nCliente: ${o.name}\n\nItens do pedido:\n` +
+  return `Olá, ${S.settings.brand}! Gostaria de finalizar meu pedido #${o.code}.\n\nCliente: ${o.name}\nEndereço: ${o.address}\n\nItens do pedido:\n` +
     o.items.map((i, k) => `\n${k + 1}) ${i.name}\nCor: ${i.color || '-'}\nTamanho: ${i.size}\nQuantidade: ${i.qty}\nValor: ${brl(i.price * i.qty)}`).join('\n') +
     `\n\nTotal: ${brl(o.total)}${o.notes ? '\nObs: ' + o.notes : ''}\n\nAguardo o envio do PIX para realizar o pagamento.`;
 }
@@ -364,7 +365,7 @@ const ACT = {
   buy: () => { if (validP()) { addCart(); checkout(); } },
   cq: d => { C[d.i].qty = Math.max(1, C[d.i].qty + +d.d); saveCart(); },
   crm: d => { C.splice(d.i, 1); saveCart(); toast('Produto removido'); },
-  login: async () => { const p = $('#lgp').value.trim(); let ok = false; try { ok = useSB() ? await rpc('check_admin', { p_pass: p }) : p === S.settings.adminPass; } catch { return toast('Não foi possível verificar a senha no Supabase', 'err'); } if (ok) { ADMPASS = p; openAdmin(); } else toast('Senha incorreta', 'err'); },
+  login: async () => { const p = $('#lgp').value.trim(); let ok = false; try { ok = useSB() ? await rpc('check_admin', { p_pass: p }) : p === S.settings.adminPass; } catch (e) { return toast('Supabase: ' + e.message, 'err'); } if (ok) { ADMPASS = p; openAdmin(); } else toast('Senha incorreta', 'err'); },
   esave: () => EDIT && EDIT(), mkorder: () => MK && MK(),
   checkout,
   admin: () => { modal('<h2>Acesso administrativo</h2><div id="lg" style="margin-top:14px"><label class="fld"><span>Senha</span><input type="password" id="lgp" autocomplete="current-password"></label><button class="btn full" data-act="login">Entrar</button></div>'); setTimeout(() => $('#lgp') && $('#lgp').focus(), 60); },
@@ -429,7 +430,7 @@ async function loadOrders() {
   const ab = $('#ab'); let o = [];
   try { o = await Store.listOrders(ADMPASS); } catch { ab.innerHTML = '<h2>Pedidos</h2><p class="empty">Não foi possível carregar os pedidos.</p>'; return; }
   if (ATAB !== 'ord') return;
-  ab.innerHTML = '<h2>Pedidos</h2><p class="mut">Os valores abaixo foram registrados na hora da compra. Confira com eles, e não com o que aparece digitado no WhatsApp.</p>' + (o.map(x => `<div class="item" style="display:block"><b>#${esc(x.code || String(x.id).slice(0, 6).toUpperCase())} · ${esc(x.name)}</b> — ${brl(x.total)} <span class="mut">${new Date(x.created || x.date).toLocaleString('pt-BR')}</span>${x.items.map(i => `<p class="mut">${i.qty}× ${esc(i.name)} · ${esc(i.color || '-')} · ${esc(i.size)} · ${brl(i.price)} cada = ${brl(i.price * i.qty)}</p>`).join('')}${x.notes ? `<p class="mut">Obs: ${esc(x.notes)}</p>` : ''}<div class="row"><select data-ost="${esc(x.id)}" style="background:#111;border-radius:999px;padding:8px 14px;border:1px solid var(--line)">${['Novo', 'Pago', 'Enviado', 'Cancelado'].map(s => `<option ${s === x.status ? 'selected' : ''}>${s}</option>`).join('')}</select><button class="btn ghost sm" data-act="odel" data-id="${esc(x.id)}">Excluir</button></div></div>`).join('') || '<p class="empty">Nenhum pedido ainda.</p>');
+  ab.innerHTML = '<h2>Pedidos</h2><p class="mut">Os valores abaixo foram registrados na hora da compra. Confira com eles, e não com o que aparece digitado no WhatsApp.</p>' + (o.map(x => `<div class="item" style="display:block"><b>#${esc(x.code || String(x.id).slice(0, 6).toUpperCase())} · ${esc(x.name)}</b> — ${brl(x.total)} <span class="mut">${new Date(x.created || x.date).toLocaleString('pt-BR')}</span>${x.address ? `<p class="mut">Endereço: ${esc(x.address)}</p>` : ''}${x.items.map(i => `<p class="mut">${i.qty}× ${esc(i.name)} · ${esc(i.color || '-')} · ${esc(i.size)} · ${brl(i.price)} cada = ${brl(i.price * i.qty)}</p>`).join('')}${x.notes ? `<p class="mut">Obs: ${esc(x.notes)}</p>` : ''}<div class="row"><select data-ost="${esc(x.id)}" style="background:#111;border-radius:999px;padding:8px 14px;border:1px solid var(--line)">${['Novo', 'Pago', 'Enviado', 'Cancelado'].map(s => `<option ${s === x.status ? 'selected' : ''}>${s}</option>`).join('')}</select><button class="btn ghost sm" data-act="odel" data-id="${esc(x.id)}">Excluir</button></div></div>`).join('') || '<p class="empty">Nenhum pedido ainda.</p>');
 }
 function adm(tab, body) {
   const pr = S.products, st = ATAB === tab && !body ? $('#admin').scrollTop : 0; ATAB = tab;
@@ -465,7 +466,7 @@ function adminActs() {
 const refresh = () => { document.documentElement.classList.add('rp'); requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.remove('rp'))); };
 document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
 addEventListener('pageshow', refresh);
-(async () => { S = await Store.load(); render(); if (Store.failed) toast('Não foi possível carregar os dados do Supabase.', 'err'); })();
+(async () => { S = await Store.load(); render(); if (Store.failed) toast('Não foi possível carregar os dados do Supabase: ' + Store.err, 'err'); })();
 </script>
 </body>
 </html>
