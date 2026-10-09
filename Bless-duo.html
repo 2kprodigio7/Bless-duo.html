@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bless Duo | Moda Masculina e Feminina</title>
+<meta name="description" content="Bless Duo: moda masculina e feminina com estilo premium e minimalista.">
+<meta property="og:title" content="Bless Duo | Moda Masculina e Feminina">
+<meta property="og:description" content="Moda que representa você.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18'/%3E%3Ctext x='32' y='42' font-size='28' text-anchor='middle' fill='white' font-family='serif'%3EBD%3C/text%3E%3C/svg%3E">
+<link id="gf" rel="stylesheet" href="">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#050505;--fg:#f5f5f5;--mut:#9a9a9a;--btn:#fff;--btnfg:#000;--r:22px;--blur:18px;--font:'Inter',system-ui,sans-serif;--fs:16px;--line:rgba(255,255,255,.12)}
+html{font-size:var(--fs);scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+*{-webkit-tap-highlight-color:transparent}button,.card,[data-act]{outline:none}input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #fff;outline-offset:2px}#page{display:none;padding-top:104px}.pg #page{display:block}.pg #hero,.pg #cats,.pg #shop{display:none}#page h2{margin:18px auto 20px;max-width:640px;font-size:1.6rem}#page>.btn{display:flex;width:max-content;margin-left:max(0px,calc(50% - 320px))}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.04));-webkit-backdrop-filter:blur(var(--blur)) saturate(140%);backdrop-filter:blur(var(--blur)) saturate(140%);border:1px solid var(--line);box-shadow:0 10px 36px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.18)}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 26px;border-radius:999px;background:var(--btn);color:var(--btnfg);font-weight:600;transition:transform .2s,opacity .2s}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.btn.sm{min-height:38px;padding:0 18px;font-size:.9rem}.btn[disabled]{opacity:.35;pointer-events:none}.btn.full{width:100%}
+.bar{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:min(1100px,calc(100% - 24px));z-index:50;display:flex;align-items:center;gap:6px;padding:8px 10px 8px 22px;border-radius:999px}
+.logo{font-weight:700;font-size:1.1rem;letter-spacing:.02em;margin-right:auto;display:flex;align-items:center;gap:8px}.logo img{width:30px;height:30px;border-radius:50%}
+.nav{display:flex;gap:4px;margin-right:auto}.nav button{padding:8px 14px;border-radius:999px;color:var(--mut);transition:.2s}.nav button:hover{color:var(--fg);background:rgba(255,255,255,.08)}
+.ib{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:1.15rem}.ib:hover{background:rgba(255,255,255,.1)}
+.ib b{position:absolute;top:2px;right:0;min-width:18px;height:18px;border-radius:9px;background:var(--btn);color:var(--btnfg);font-size:.7rem;display:grid;place-items:center}.ib b:empty{display:none}
+.burger{display:flex;flex-direction:column;gap:4px;justify-content:center;align-items:center}.burger i{width:4px;height:4px;background:var(--fg);border-radius:50%}
+.sbar{position:fixed;top:74px;left:50%;transform:translate(-50%,-12px);width:min(600px,calc(100% - 24px));z-index:49;border-radius:999px;padding:6px;opacity:0;pointer-events:none;transition:.25s}
+.sbar.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.sbar input{width:100%;background:none;border:0;padding:10px 18px;outline:0}
+.menu{position:fixed;inset:0;z-index:60;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:flex-start;justify-content:flex-end;padding:76px 12px 0}
+.menu.on{opacity:1;pointer-events:auto}
+.mbox{width:min(230px,100%);border-radius:24px;padding:8px;transform-origin:top right;transform:translateY(-8px) scale(.94);transition:.25s}.menu.on .mbox{transform:none}
+.mbox button{display:block;width:100%;text-align:left;padding:12px 16px;font-size:1.05rem;border-radius:16px}.mbox button:hover{background:rgba(255,255,255,.08)}
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding:120px 24px 70px;background:radial-gradient(circle at 70% 20%,#262626,#050505 70%) center/cover}
+.hero .bg{position:absolute;inset:0}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25),transparent 35%,var(--bg) 98%)}
+.hero .in{position:relative;z-index:1;max-width:1180px;width:100%;margin:0 auto;animation:rise .9s both}
+.hero h1{font-size:clamp(3rem,11vw,8rem);line-height:.95}.hero p{color:#ddd;max-width:520px;margin:14px 0 24px;font-size:1.15rem}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.pills{display:flex;gap:10px;overflow-x:auto;padding:4px 0 8px;scrollbar-width:none}.pills::-webkit-scrollbar{display:none}
+.pill{flex:none;min-height:44px;padding:0 22px;border-radius:999px;border:1px solid var(--line);color:var(--mut);transition:.2s}.pill:hover{color:var(--fg)}.pill.on{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+#shop h2{margin:6px auto 20px;max-width:640px;font-size:1.6rem}
+.grid{display:grid;grid-template-columns:1fr;gap:32px;max-width:640px;margin:0 auto}
+.card{border-radius:var(--r);background:#0f0f0f;border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:transform .25s,border-color .25s}.card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.3)}
+.ph{position:relative;aspect-ratio:4/5;background:#151515}.noimg{height:100%;display:grid;place-items:center;color:#444;font-weight:700;letter-spacing:.1em}
+.tag{position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:999px;background:var(--btn);color:var(--btnfg);font-size:.8rem}.tag.out{left:auto;right:12px;background:rgba(0,0,0,.7);color:#fff;border:1px solid var(--line)}
+.ci{padding:22px;display:grid;gap:6px}.ci .pr{font-size:1.25rem}.ci small{color:var(--mut)}.ci h3{font-size:1.4rem}.pr s{color:var(--mut);margin-right:6px}.ci .btn{margin-top:10px}
+.empty{color:var(--mut);padding:40px 0}
+.modal{position:fixed;inset:0;z-index:85;background:rgba(0,0,0,.6);display:grid;place-items:center;padding:12px;opacity:0;pointer-events:none;transition:.25s}.modal.on{opacity:1;pointer-events:auto}
+.box{position:relative;width:min(560px,100%);max-height:92vh;overflow:auto;border-radius:30px;padding:26px;background-color:rgba(12,12,12,.8);animation:pop .3s both}.box.wide{width:min(1000px,100%)}
+@keyframes pop{from{opacity:0;transform:scale(.96)}}
+.x{position:absolute;top:12px;right:14px;width:40px;height:40px;border-radius:50%;font-size:1.6rem;z-index:3}.x:hover{background:rgba(255,255,255,.1)}
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.main{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#151515;cursor:zoom-in}.main.zoom{position:fixed;inset:0;z-index:90;border-radius:0;aspect-ratio:auto;background:#000;cursor:zoom-out}.main.zoom img{object-fit:contain}
+.nv{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.55);font-size:1.4rem}.nv.l{left:10px}.nv.r{right:10px}
+.th{display:flex;gap:8px;margin-top:10px;overflow-x:auto}.th button{flex:none;width:62px;height:76px;border-radius:12px;overflow:hidden;opacity:.5;border:1px solid transparent}.th button.on{opacity:1;border-color:#fff}
+.inf{display:grid;gap:14px;align-content:start}.inf h2{font-size:1.7rem;padding-right:30px}.inf .pr{font-size:1.4rem}.inf .pr s{font-size:1rem}.mut{color:var(--mut)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}.opt{min-width:48px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line)}.opt.on{background:var(--btn);color:var(--btnfg)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}.qty button{width:44px;height:44px;font-size:1.2rem}.qty span{min-width:30px;text-align:center}
+.warn{padding:16px;border-radius:20px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:65;padding:20px;background-color:rgba(10,10,10,.82);transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:14px;border-radius:30px 0 0 30px}.drawer.on{transform:none}
+.drawer .list{flex:1;overflow:auto;display:grid;gap:12px;align-content:start}
+.ci2{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:10px;border-radius:18px;border:1px solid var(--line)}.ci2 .t{width:70px;height:86px;border-radius:12px;overflow:hidden;background:#151515}
+.ci2 .rw{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px}.ci2 .qty button{width:34px;height:34px}.lnk{color:var(--mut);text-decoration:underline}
+.tot{display:flex;justify-content:space-between;font-size:1.25rem;font-weight:600}
+.fld{display:grid;gap:6px;margin-bottom:12px}.fld>span{color:var(--mut);font-size:.88rem}
+.fld input:not([type=checkbox]):not([type=range]):not([type=color]),.fld select,.fld textarea{width:100%;min-height:46px;padding:10px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.06)}
+.fld select option{background:#111}.fld textarea{min-height:90px}.fld input[type=color]{width:60px;height:44px;border:0;background:none}
+.fld.chk{display:flex;align-items:center;gap:10px}.sz{display:flex;flex-wrap:wrap;gap:8px}.sz label{cursor:pointer}.sz input{position:absolute;opacity:0}.sz i{display:grid;place-items:center;min-width:46px;height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line);font-style:normal}.sz input:checked+i{background:var(--btn);color:var(--btnfg)}
+.pix{display:grid;gap:12px;justify-items:center;text-align:center}.pix .qr{width:210px;height:210px;border-radius:20px;overflow:hidden;background:#fff}.pix code{word-break:break-all;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.08);width:100%}
+.foot{border-top:1px solid var(--line);margin-top:50px;padding:46px 18px 30px}.foot .in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.foot h3{margin-bottom:10px}.foot p,.foot a{color:var(--mut);display:block;margin-bottom:6px;text-decoration:none}.foot a:hover{color:var(--fg)}
+.foot .cp{max-width:1180px;margin:30px auto 0;display:flex;justify-content:space-between;color:#666;font-size:.85rem}.foot .cp button{color:#666;font-size:.8rem}
+#toasts{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:100;display:grid;gap:8px;width:min(420px,calc(100% - 24px))}
+.toast{padding:14px 20px;border-radius:999px;background:rgba(20,20,20,.92);border:1px solid var(--line);animation:pop .25s both;text-align:center}.toast.err{border-color:#ff6b6b}
+.admin{position:fixed;inset:0;z-index:80;background:var(--bg);overflow:auto;display:none}.admin.on{display:block}
+.adm{max-width:960px;margin:0 auto;padding:18px}.adm h2{margin:18px 0}.tabs{display:flex;gap:8px;overflow-x:auto;padding:6px 0}.tabs .pill{min-height:40px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}.item{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px;margin-bottom:10px;border-radius:20px;border:1px solid var(--line)}
+.item .t{width:52px;height:64px;border-radius:10px;overflow:hidden;background:#151515;flex:none}.item .g{display:flex;gap:12px;align-items:center;flex:1;min-width:200px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.stat{padding:20px;border-radius:22px;border:1px solid var(--line)}.stat b{display:block;font-size:2rem}
+.imgs{display:flex;gap:10px;flex-wrap:wrap}.tb{position:relative;width:84px;height:100px;border-radius:14px;overflow:hidden}.tb button{position:absolute;top:4px;right:4px;width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,.75)}
+.add{display:grid;place-items:center;width:100px;height:100px;border:1px dashed var(--line);border-radius:14px;text-align:center;font-size:.8rem;cursor:pointer;color:var(--mut)}
+@media(max-width:780px){.pm{grid-template-columns:1fr}.foot .in{grid-template-columns:1fr}.hero{min-height:85vh}.box{padding:20px;border-radius:26px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.mbox button{color:var(--mut)}.mbox button.on{color:var(--fg);font-weight:700;background:rgba(255,255,255,.1)}
+#pp{display:none;padding-top:100px;max-width:1000px}.pp #pp{display:block}.pp #hero,.pp #cats,.pp #shop,.pp #page{display:none}
+.back{width:46px;height:46px;border-radius:50%;font-size:1.4rem;border:1px solid var(--line);background:rgba(255,255,255,.06);margin-bottom:16px;display:grid;place-items:center}.back:hover{background:rgba(255,255,255,.12)}
+.ahead{position:sticky;top:10px;z-index:5;border-radius:28px;padding:12px 16px;margin-bottom:8px;display:grid;gap:8px}.tabs{position:relative}
+.btn.dirty:before{content:"●";font-size:.65rem}
+.fld.chk{justify-content:space-between}.fld.chk input{order:2;-webkit-appearance:none;appearance:none;width:52px;height:30px;border-radius:999px;background:#333;position:relative;cursor:pointer;transition:.25s;flex:none}
+.fld.chk input:after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.25s}.fld.chk input:checked{background:#fff}.fld.chk input:checked:after{left:25px;background:#000}
+.prev{position:relative;height:130px;border-radius:24px;overflow:hidden;margin-bottom:18px;background:#111;display:grid;place-items:center}.prev span{position:absolute;border-radius:50%}.o1{width:110px;height:110px;background:#e0e0e0;left:12%;top:10px}.o2{width:90px;height:90px;background:#777;right:14%;bottom:-10px}.pv{position:relative;padding:14px 26px;border-radius:999px}
+.drawer:not(.on){visibility:hidden;-webkit-backdrop-filter:none;backdrop-filter:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),visibility 0s .35s}
+.menu:not(.on){visibility:hidden;transition:opacity .25s,visibility 0s .25s}.menu:not(.on) .mbox{-webkit-backdrop-filter:none;backdrop-filter:none}
+.rp .glass{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+</style>
+</head>
+<body>
+<header class="bar glass">
+  <button class="logo" data-act="home" id="logo">Bless Duo</button>
+  <button class="ib" data-act="cart" aria-label="Carrinho"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><b id="cc"></b></button>
+  <button class="ib burger" data-act="menu" aria-label="Menu"><i></i><i></i><i></i></button>
+</header>
+<nav id="menu" class="menu" aria-label="Menu"><div class="mbox glass" id="mbox"></div></nav>
+<main>
+  <section id="page" class="wrap"><button class="btn ghost sm" data-act="home">← Voltar</button><h2 id="ptitle"></h2><div class="grid" id="pgrid"></div></section>
+  <section id="pp" class="wrap"></section>
+  <section id="hero" class="hero"></section>
+  <section id="cats" class="wrap"><div class="pills" id="pills"></div></section>
+  <section id="shop" class="wrap"><h2 id="stitle">Todos os produtos</h2><div class="grid" id="grid"></div></section>
+</main>
+<footer id="foot" class="foot"></footer>
+<aside id="cart" class="drawer glass" aria-label="Carrinho"></aside>
+<div id="modal" class="modal" role="dialog" aria-modal="true"></div>
+<div id="admin" class="admin"></div>
+<div id="toasts" aria-live="polite"></div>
+<script>
+/* Camada de dados. Para usar o Supabase, implemente um adapter com a mesma interface
+   (load, save, uploadImage) e troque Store.adapter.
+   Tabelas sugeridas: settings(id, data jsonb), categories, products, orders. Bucket de imagens: "images". */
+/* ===== SUPABASE =====
+   1) Crie o projeto e rode o arquivo supabase.sql no SQL Editor.
+   2) Cole abaixo a Project URL e a Publishable key (sb_publishable_...), em Project Settings > API Keys.
+   (A chave antiga "anon" também funciona. NUNCA use a "secret" ou "service_role".)
+   Enquanto estiverem vazias, tudo fica só neste navegador (modo protótipo). */
+const SUPABASE_URL = 'https://wjrgujdsjltfdxuuopow.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_AsJ8wR8qNrVWYNXVhhBMkA_C-y-gMR_';
+
+const DEFAULTS = {
+  settings: {
+    brand: 'Bless Duo', logo: '', heroImg: '', heroTitle: 'BLESS DUO', heroSub: 'Moda que representa você.',
+    heroText: '', heroBtn: 'Explorar coleção', whatsapp: '', showMap: true,
+    about: 'Moda masculina e feminina com identidade própria.', address: '', phone: '', instagram: '', links: '', maps: '',
+    adminPass: '529529', bg: '#050505', fg: '#f5f5f5', btn: '#ffffff', btnText: '#000000', radius: 22, blur: 18, font: 'Inter', fontSize: 16
+  },
+  categories: [
+    { id: 'm', name: 'Masculino', active: true }, { id: 'f', name: 'Feminino', active: true },
+    { id: 'c', name: 'Camisetas', active: true }, { id: 'j', name: 'Jaquetas', active: true }
+  ],
+  products: [
+    { id: 'demo1', code: 'DEMO-001', name: 'Camiseta Oversized (demonstrativo)', desc: 'Produto de exemplo. Edite ou exclua no painel ADM.', price: 149.9, promo: 99.9, cat: 'c', sub: 'Oversized', color: 'Preto, Branco', sizes: ['P', 'M', 'G'], available: true, active: true, images: [], payLink: '', pixQr: '', info: '', tags: ['Novidade'] },
+    { id: 'demo2', code: 'DEMO-002', name: 'Jaqueta (demonstrativo)', desc: 'Produto de exemplo indisponível.', price: 249.9, promo: 0, cat: 'j', sub: '', color: 'Preto', sizes: ['M', 'G'], available: false, active: true, images: [], payLink: '', pixQr: '', info: '', tags: [] }
+  ],
+  orders: []
+};
+const toBlob = (file, max = 1000) => new Promise((res, rej) => {
+  const im = new Image(), u = URL.createObjectURL(file);
+  im.onload = () => {
+    const k = Math.min(1, max / Math.max(im.width, im.height)), c = document.createElement('canvas');
+    c.width = im.width * k; c.height = im.height * k; c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+    URL.revokeObjectURL(u); c.toBlob(b => b ? res(b) : rej(), 'image/webp', .78);
+  };
+  im.onerror = rej; im.src = u;
+});
+const toDataURL = b => new Promise(r => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(b); });
+const LocalAdapter = {
+  async load() { try { return JSON.parse(localStorage.getItem('blessduo')); } catch { return null; } },
+  async save(d) { localStorage.setItem('blessduo', JSON.stringify(d)); },
+  async uploadImage(file) { return toDataURL(await toBlob(file)); }
+};
+const SupabaseAdapter = {
+  h: (x = {}) => ({ apikey: SUPABASE_KEY, ...(SUPABASE_KEY.startsWith('eyJ') ? { Authorization: 'Bearer ' + SUPABASE_KEY } : {}), ...x }),
+  async load() {
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/store?id=eq.main&select=data`, { headers: SupabaseAdapter.h() });
+    if (!r.ok) throw new Error(r.status); const j = await r.json(); return j[0] ? j[0].data : null;
+  },
+  async save(d, pass) { const { orders, ...x } = d; await rpc('save_store', { p_pass: pass, p_data: { ...x, settings: { ...x.settings, adminPass: undefined } } }); },
+  async uploadImage(file) {
+    const b = await toBlob(file, 1400), name = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}.webp`;
+    try {
+      const r = await fetch(`${SUPABASE_URL}/storage/v1/object/images/${name}`, { method: 'POST', headers: SupabaseAdapter.h({ 'Content-Type': 'image/webp' }), body: b });
+      if (!r.ok) throw new Error(r.status); return `${SUPABASE_URL}/storage/v1/object/public/images/${name}`;
+    } catch { return toDataURL(b); }
+  }
+};
+const useSB = () => !!(SUPABASE_URL && SUPABASE_KEY);
+const rpc = async (fn, args) => {
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, { method: 'POST', headers: SupabaseAdapter.h({ 'Content-Type': 'application/json' }), body: JSON.stringify(args) });
+  if (!r.ok) throw new Error(r.status); const t = await r.text(); return t ? JSON.parse(t) : null;
+};
+const lo = () => { try { return JSON.parse(localStorage.getItem('bd_orders') || '[]'); } catch { return []; } };
+const Store = {
+  failed: false,
+  async load() {
+    let s = null;
+    if (useSB()) { try { s = await SupabaseAdapter.load(); } catch { this.failed = true; } } else s = await LocalAdapter.load();
+    const d = structuredClone(DEFAULTS);
+    return s ? { ...d, ...s, settings: { ...d.settings, ...s.settings } } : d;
+  },
+  save(d, pass) { if (this.failed) throw new Error('offline'); return (useSB() ? SupabaseAdapter : LocalAdapter).save(d, pass); },
+  uploadImage(f) { return useSB() ? SupabaseAdapter.uploadImage(f) : LocalAdapter.uploadImage(f); },
+  async addOrder(o) {
+    if (!useSB()) { const l = lo(); l.unshift(o); localStorage.setItem('bd_orders', JSON.stringify(l)); return; }
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/orders`, { method: 'POST', headers: SupabaseAdapter.h({ 'Content-Type': 'application/json', Prefer: 'return=minimal' }), body: JSON.stringify({ id: o.id, data: o }) });
+    if (!r.ok) throw new Error(r.status);
+  },
+  async listOrders(pass) { return useSB() ? (await rpc('get_orders', { p_pass: pass })).map(r => ({ ...r.data, id: r.id, created: r.created })) : lo(); },
+  async setOrder(pass, id, st) {
+    if (useSB()) return rpc('set_order', { p_pass: pass, p_id: id, p_status: st });
+    const l = lo().filter(o => o.id !== id || st !== '__delete'); l.forEach(o => { if (o.id === id) o.status = st; }); localStorage.setItem('bd_orders', JSON.stringify(l));
+  }
+};
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const brl = n => Number(n || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const uid = () => Math.random().toString(36).slice(2, 9);
+const price = p => off(p) ? p.promo : p.price;
+const off = p => p.promo > 0 && p.promo < p.price ? Math.round((1 - p.promo / p.price) * 100) : 0;
+const colors = p => String(p.color || '').split(',').map(x => x.trim()).filter(Boolean);
+const catName = id => (S.categories.find(c => c.id === id) || {}).name || '';
+const pic = (p, i = 0) => p.images[i] ? `<img src="${p.images[i]}" alt="${esc(p.name)}" loading="lazy" decoding="async">` : `<div class="noimg">${esc(S.settings.brand)}</div>`;
+let S, F = { c: 'all', q: '' }, P = null, ADM = false, V = null, EDIT = null, MK = null, ADMPASS = '';
+let DIRTY = false, PS = 0, ATAB = '';
+const mark = () => { DIRTY = true; const b = $('[data-act=savall]'); b && b.classList.add('dirty'); };
+let C = []; try { C = JSON.parse(localStorage.getItem('bd_cart') || '[]'); } catch { }
+const SIZES = ['PP', 'P', 'M', 'G', 'GG', 'XG', 'Único'], FONTS = ['Inter', 'Poppins', 'Montserrat', 'Manrope', 'Playfair Display'];
+
+function toast(m, t = 'ok') {
+  const e = document.createElement('div'); e.className = 'toast ' + t; e.textContent = m; $('#toasts').append(e); setTimeout(() => e.remove(), 2800);
+}
+async function persist() { try { await Store.save(S, ADMPASS); return true; } catch { toast('Não foi possível salvar. Com Supabase, confira URL/Key e a conexão; sem Supabase, o armazenamento do navegador pode estar cheio.', 'err'); return false; } }
+const saveCart = () => { try { localStorage.setItem('bd_cart', JSON.stringify(C)); } catch { } renderCart(); };
+
+/* ---------- Tema e página ---------- */
+function applyTheme() {
+  const s = S.settings, r = document.documentElement.style;
+  [['bg', s.bg], ['fg', s.fg], ['btn', s.btn], ['btnfg', s.btnText], ['r', s.radius + 'px'], ['blur', s.blur + 'px'], ['fs', s.fontSize + 'px'], ['font', `'${s.font}',system-ui,sans-serif`]].forEach(([k, v]) => r.setProperty('--' + k, v));
+  $('#gf').href = `https://fonts.googleapis.com/css2?family=${s.font.replace(/ /g, '+')}:wght@400;600;700&display=swap`;
+  $('meta[name=description]').content = s.seoDesc || $('meta[name=description]').content;
+  $('#logo').innerHTML = (s.logo ? `<img src="${s.logo}" alt="">` : '') + esc(s.brand);
+}
+function renderHero() {
+  const s = S.settings;
+  $('#hero').innerHTML = (s.heroImg ? `<div class="bg"><img src="${s.heroImg}" alt="${esc(s.brand)}" fetchpriority="high"></div>` : '') +
+    `<div class="in"><h1>${esc(s.heroTitle)}</h1><p>${esc(s.heroSub)} ${esc(s.heroText)}</p>${s.heroBtn ? `<button class="btn" data-act="goto" data-t="shop">${esc(s.heroBtn)}</button>` : ''}</div>`;
+}
+const activeCats = () => S.categories.filter(c => c.active);
+function renderPills() {
+  const has = t => S.products.some(p => p.active && p.tags.includes(t)), any = S.products.some(p => p.active && off(p));
+  const l = [['all', 'Todos']];
+  if (has('Mais vendido')) l.push(['tag:Mais vendido', 'Mais vendidos']);
+  if (has('Destaque')) l.push(['tag:Destaque', 'Destaques']);
+  if (any) l.push(['promo', 'Promoções']);
+  activeCats().forEach(c => l.push([c.id, c.name]));
+  if (!l.some(x => x[0] === F.c)) F.c = 'all';
+  $('#pills').innerHTML = l.map(([k, n]) => `<button class="pill ${F.c === k ? 'on' : ''}" data-act="filt" data-c="${esc(k)}">${esc(n)}</button>`).join('');
+  $('#stitle').textContent = F.c === 'all' ? 'Todos os produtos' : l.find(x => x[0] === F.c)[1];
+}
+const match = (p, c) => c === 'all' || (c === 'promo' ? off(p) : c.startsWith('tag:') ? p.tags.includes(c.slice(4)) : p.cat === c);
+const card = p => `<article class="card" data-act="openp" data-id="${p.id}" tabindex="0"><div class="ph">${pic(p)}${off(p) ? `<b class="tag">-${off(p)}%</b>` : ''}${!p.available ? '<b class="tag out">Indisponível</b>' : ''}</div><div class="ci"><small>${esc(catName(p.cat))}</small><h3>${esc(p.name)}</h3><p class="pr">${off(p) ? `<s>${brl(p.price)}</s>` : ''}<strong>${brl(price(p))}</strong></p><span class="btn sm">Ver produto</span></div></article>`;
+const fill = (el, a) => { el.innerHTML = a.length ? a.map(card).join('') : '<p class="empty">Nenhum produto encontrado.</p>'; };
+const renderGrid = () => fill($('#grid'), S.products.filter(p => p.active && match(p, F.c)));
+function renderPage() {
+  document.body.classList.toggle('pg', !!V); document.body.classList.toggle('pp', !!P); renderMenu(); if (!V) return;
+  const g = S.categories.find(c => c.id === V);
+  $('#ptitle').textContent = V === 'tag:Novidade' ? 'Novidades' : g ? g.name : '';
+  fill($('#pgrid'), S.products.filter(p => p.active && match(p, V)));
+}
+function renderFooter() {
+  const s = S.settings, wa = s.whatsapp.replace(/\D/g, ''), ig = s.instagram ? (s.instagram.startsWith('http') ? s.instagram : 'https://instagram.com/' + s.instagram.replace('@', '')) : '';
+  const links = s.links.split('\n').map(x => x.split('|')).filter(x => x[1]).map(([n, u]) => `<a href="${esc(u.trim())}" target="_blank" rel="noopener">${esc(n)}</a>`).join('');
+  $('#foot').innerHTML = `<div class="in"><div id="about"><h3>${esc(s.brand)}</h3><p>${esc(s.about)}</p>${s.showMap !== false && s.address ? `<p>${esc(s.address)}</p>` : ''}${s.showMap !== false && s.maps ? `<a class="btn ghost sm" href="${esc(s.maps)}" target="_blank" rel="noopener">Abrir no Google Maps</a>` : ''}</div>
+  <div id="contact"><h3>Contato</h3>${s.phone ? `<p>${esc(s.phone)}</p>` : ''}${wa ? `<a href="https://wa.me/${wa}" target="_blank" rel="noopener">WhatsApp</a>` : ''}${ig ? `<a href="${esc(ig)}" target="_blank" rel="noopener">Instagram</a>` : ''}</div>
+  <div><h3>Links</h3>${links || '<p>—</p>'}</div></div><div class="cp"><span>© ${new Date().getFullYear()} ${esc(s.brand)}</span><button data-act="admin">Admin</button></div>`;
+}
+function renderMenu() {
+  $('#mbox').innerHTML = [['home', 'Início', ''], ['openpg', 'Novidades', 'tag:Novidade'], ['goto', 'Contato', 'contact']].map(([a, n, v]) => {
+    const on = !P && ((a === 'home' && !V) || (a === 'openpg' && V === v));
+    return `<button class="${on ? 'on' : ''}" ${on ? 'aria-current="page"' : ''} data-act="${a}" data-c="${esc(v)}" data-t="${esc(v)}">${esc(n)}</button>`;
+  }).join('');
+}
+function render() { applyTheme(); renderHero(); renderPills(); renderGrid(); renderPage(); renderFooter(); renderMenu(); renderCart(); }
+
+/* ---------- Produto ---------- */
+function pHTML() {
+  const { p, size, qty, i, color } = P, im = p.images, cs = colors(p);
+  return `<div class="pm"><div><div class="main ${P.z ? 'zoom' : ''}" data-act="zoom">${pic(p, i)}${im.length > 1 ? '<button class="nv l" data-act="gal" data-d="-1" aria-label="Anterior">‹</button><button class="nv r" data-act="gal" data-d="1" aria-label="Próxima">›</button>' : ''}</div>
+  ${im.length > 1 ? `<div class="th">${im.map((_, k) => `<button data-act="gal" data-k="${k}" class="${k == i ? 'on' : ''}" aria-label="Foto ${k + 1}">${pic(p, k)}</button>`).join('')}</div>` : ''}</div>
+  <div class="inf"><small class="mut">${esc(catName(p.cat))}${p.sub ? ' · ' + esc(p.sub) : ''}</small><h2>${esc(p.name)}</h2>
+  <p class="pr">${off(p) ? `<s>${brl(p.price)}</s> <b class="tag" style="position:static">-${off(p)}%</b> ` : ''}<strong>${brl(price(p))}</strong></p>
+  <p class="mut">${esc(p.desc)}</p>${p.info ? `<p class="mut">${esc(p.info)}</p>` : ''}
+  ${cs.length ? `<div><p class="mut">Cor: ${esc(color || (cs.length > 1 ? 'selecione' : cs[0]))}</p><div class="opts">${cs.length > 1 ? cs.map(c => `<button class="opt ${c == color ? 'on' : ''}" data-act="pick" data-k="color" data-v="${esc(c)}">${esc(c)}</button>`).join('') : ''}</div></div>` : ''}
+  ${p.sizes.length ? `<div><p class="mut">Tamanho</p><div class="opts">${p.sizes.map(s => `<button class="opt ${s == size ? 'on' : ''}" data-act="pick" data-k="size" data-v="${s}">${s}</button>`).join('')}</div></div>` : ''}
+  <div class="qty"><button data-act="pq" data-d="-1" aria-label="Menos">−</button><span>${qty}</span><button data-act="pq" data-d="1" aria-label="Mais">+</button></div>
+  <p>${p.available ? '<span class="mut">Disponível</span>' : '<b>Indisponível no momento</b>'}</p>
+  <div class="row"><button class="btn" data-act="buy" ${p.available ? '' : 'disabled'}>Comprar</button><button class="btn ghost" data-act="add" ${p.available ? '' : 'disabled'}>Adicionar ao carrinho</button></div></div></div>`;
+}
+function drawP() { $('#pp').innerHTML = `<button class="back" data-act="pback" aria-label="Voltar">←</button><div class="pbox">${pHTML()}</div>`; }
+function openP(id) {
+  const p = S.products.find(x => x.id === id); if (!p) return; PS = scrollY;
+  const cs = colors(p); P = { p, size: null, qty: 1, i: 0, color: cs.length === 1 ? cs[0] : null, z: false };
+  drawP(); renderPage(); scrollTo(0, 0);
+}
+function validP() {
+  const { p, size, color } = P;
+  if (!p.available) { toast('Produto indisponível', 'err'); return false; }
+  if (colors(p).length > 1 && !color) { toast('Selecione uma cor', 'err'); return false; }
+  if (p.sizes.length && !size) { toast('Selecione um tamanho', 'err'); return false; }
+  return true;
+}
+function addCart() {
+  const { p, size, color, qty } = P, k = [p.id, size, color].join('|'), it = C.find(x => x.k === k);
+  it ? it.qty += qty : C.push({ k, pid: p.id, size: size || '-', color: color || '', qty }); saveCart(); toast('Produto adicionado ao carrinho');
+}
+/* ---------- Carrinho ---------- */
+function cartItems() { return C.map(c => ({ ...c, p: S.products.find(p => p.id === c.pid) })).filter(c => c.p); }
+const cartTotal = () => cartItems().reduce((t, c) => t + price(c.p) * c.qty, 0);
+function renderCart() {
+  const its = cartItems(); C = its.map(({ p, ...c }) => c);
+  const n = C.reduce((t, c) => t + c.qty, 0); $('#cc').textContent = n || '';
+  $('#cart').innerHTML = `<div class="row" style="justify-content:space-between;margin:0"><h2>Carrinho</h2><button class="ib" data-act="close" aria-label="Fechar">×</button></div>
+  <div class="list">${its.length ? its.map((c, i) => `<div class="ci2"><div class="t">${pic(c.p)}</div><div><b>${esc(c.p.name)}</b><p class="mut">${esc(c.color)} ${c.size !== '-' ? '· ' + esc(c.size) : ''}${c.p.available ? '' : ' · Indisponível'}</p>
+  <div class="rw"><div class="qty"><button data-act="cq" data-i="${i}" data-d="-1" aria-label="Menos">−</button><span>${c.qty}</span><button data-act="cq" data-i="${i}" data-d="1" aria-label="Mais">+</button></div><b>${brl(price(c.p) * c.qty)}</b></div><button class="lnk" data-act="crm" data-i="${i}">Remover</button></div></div>`).join('') : '<p class="empty">Seu carrinho está vazio.</p>'}</div>
+  <div class="tot"><span>Total</span><span>${brl(cartTotal())}</span></div><button class="btn full" data-act="checkout" ${its.length ? '' : 'disabled'}>Finalizar no WhatsApp</button>`;
+}
+/* ---------- Checkout ---------- */
+function checkout() {
+  const its = cartItems(); if (!its.length) return toast('Carrinho vazio', 'err');
+  if (its.some(c => !c.p.available)) return toast('Remova os produtos indisponíveis do carrinho', 'err');
+  closeAll();
+  modal(`<h2>Finalizar pelo WhatsApp</h2><div style="margin:14px 0">${its.map(c => `<p>${c.qty}× ${esc(c.p.name)} <span class="mut">${esc(c.color)} ${c.size !== '-' ? c.size : ''}</span> — ${brl(price(c.p) * c.qty)}</p>`).join('')}<p class="tot" style="margin-top:12px"><span>Total</span><span>${brl(cartTotal())}</span></p></div>
+  <div id="ck"><label class="fld"><span>Seu nome</span><input id="ckn" autocomplete="name"></label><label class="fld"><span>Observações (opcional)</span><textarea id="cko"></textarea></label><p class="mut" style="margin-bottom:14px">Seu pedido completo será enviado no WhatsApp da loja. O PIX para pagamento será enviado por lá.</p><button class="btn full" data-act="mkorder">Enviar pedido pelo WhatsApp</button></div>`);
+  MK = async () => {
+    const nm = $('#ckn').value.trim(); if (!nm) return toast('Informe seu nome', 'err');
+    const n = S.settings.whatsapp.replace(/\D/g, ''); if (!n) return toast('WhatsApp da loja não configurado', 'err');
+    $('[data-act=mkorder]').setAttribute('disabled', '');
+    const o = { id: uid() + uid(), code: uid().slice(0, 6).toUpperCase(), date: new Date().toISOString(), name: nm, notes: $('#cko').value.trim(), total: cartTotal(), status: 'Novo',
+      items: its.map(c => ({ pid: c.pid, name: c.p.name, color: c.color, size: c.size, qty: c.qty, price: price(c.p) })) };
+    try { await Store.addOrder(o); } catch { toast('Não foi possível registrar o pedido no sistema. Avise a loja.', 'err'); }
+    const u = `https://wa.me/${n}?text=${encodeURIComponent(waMsg(o))}`;
+    C = []; saveCart();
+    modal(`<div class="pix"><h2>Pedido #${o.code} pronto!</h2><p class="mut">Toque no botão para abrir o WhatsApp e enviar seu pedido. O PIX será enviado por lá.</p><a class="btn full" href="${esc(u)}" target="_blank" rel="noopener">Abrir WhatsApp</a><button class="btn ghost full" data-act="close">Fechar</button></div>`);
+  };
+}
+function waMsg(o) {
+  return `Olá, ${S.settings.brand}! Gostaria de finalizar meu pedido #${o.code}.\n\nCliente: ${o.name}\n\nItens do pedido:\n` +
+    o.items.map((i, k) => `\n${k + 1}) ${i.name}\nCor: ${i.color || '-'}\nTamanho: ${i.size}\nQuantidade: ${i.qty}\nValor: ${brl(i.price * i.qty)}`).join('\n') +
+    `\n\nTotal: ${brl(o.total)}${o.notes ? '\nObs: ' + o.notes : ''}\n\nAguardo o envio do PIX para realizar o pagamento.`;
+}
+/* ---------- Modal / UI ---------- */
+function modal(h, c = '') { $('#modal').innerHTML = `<div class="box glass ${c}"><button class="x" data-act="close" aria-label="Fechar">×</button>${h}</div>`; $('#modal').classList.add('on'); document.body.classList.add('lock'); }
+function closeAll() { ['#modal', '#cart', '#menu'].forEach(s => $(s).classList.remove('on')); $('#modal').innerHTML = ''; if (!ADM) document.body.classList.remove('lock'); }
+const ask = (m, fn) => { modal(`<h2>${m}</h2><div class="row" style="margin-top:18px"><button class="btn" id="yes">Confirmar</button><button class="btn ghost" data-act="close">Cancelar</button></div>`); $('#yes').onclick = () => { closeAll(); fn(); }; };
+const goto = id => { closeAll(); const e = document.getElementById(id); e && e.scrollIntoView({ behavior: 'smooth' }); };
+const ACT = {
+  home: () => { closeAll(); P = null; V = null; renderPage(); scrollTo({ top: 0 }); },
+  pback: () => { P = null; renderPage(); scrollTo(0, PS); },
+  openpg: d => { closeAll(); P = null; V = d.c; renderPage(); scrollTo({ top: 0 }); },
+  goto: d => goto(d.t), menu: () => { $('#menu').classList.toggle('on'); },
+  cart: () => { $('#cart').classList.add('on'); }, close: () => closeAll(),
+  filt: d => { F.c = d.c; renderPills(); renderGrid(); goto('shop'); },
+  openp: d => openP(d.id), zoom: (d, el, e) => { if (e.target.closest('.nv')) return; P.z = !P.z; drawP(); },
+  gal: d => { const n = P.p.images.length; P.i = d.k !== undefined ? +d.k : (P.i + +d.d + n) % n; drawP(); },
+  pick: d => { P[d.k] = d.v; drawP(); }, pq: d => { P.qty = Math.max(1, P.qty + +d.d); drawP(); },
+  add: () => { if (validP()) { addCart(); closeAll(); } },
+  buy: () => { if (validP()) { addCart(); checkout(); } },
+  cq: d => { C[d.i].qty = Math.max(1, C[d.i].qty + +d.d); saveCart(); },
+  crm: d => { C.splice(d.i, 1); saveCart(); toast('Produto removido'); },
+  login: async () => { const p = $('#lgp').value.trim(); let ok = false; try { ok = useSB() ? await rpc('check_admin', { p_pass: p }) : p === S.settings.adminPass; } catch { return toast('Não foi possível verificar a senha no Supabase', 'err'); } if (ok) { ADMPASS = p; openAdmin(); } else toast('Senha incorreta', 'err'); },
+  esave: () => EDIT && EDIT(), mkorder: () => MK && MK(),
+  checkout,
+  admin: () => { modal('<h2>Acesso administrativo</h2><div id="lg" style="margin-top:14px"><label class="fld"><span>Senha</span><input type="password" id="lgp" autocomplete="current-password"></label><button class="btn full" data-act="login">Entrar</button></div>'); setTimeout(() => $('#lgp') && $('#lgp').focus(), 60); },
+  ...adminActs()
+};
+document.addEventListener('click', e => { const a = e.target.closest('[data-act]'); if (a && ACT[a.dataset.act]) ACT[a.dataset.act](a.dataset, a, e); else if (e.target.id === 'modal' || e.target.id === 'menu') closeAll(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); if (e.key === 'Enter' && e.target.matches('.card')) e.target.click(); });
+
+
+
+/* ---------- Painel ADM ---------- */
+function fld(f, v) {
+  const L = `<label class="fld"><span>${f.l}</span>`;
+  if (f.t === 'area') return L + `<textarea data-k="${f.k}">${esc(v)}</textarea></label>`;
+  if (f.t === 'sel') return L + `<select data-k="${f.k}">${f.o.map(o => { const [a, b] = Array.isArray(o) ? o : [o, o]; return `<option value="${esc(a)}" ${a == v ? 'selected' : ''}>${esc(b)}</option>`; }).join('')}</select></label>`;
+  if (f.t === 'chk') return `<label class="fld chk"><input type="checkbox" data-k="${f.k}" ${v ? 'checked' : ''}><span>${f.l}</span></label>`;
+  if (f.t === 'multi') return `<div class="fld"><span>${f.l}</span><div class="sz">${f.o.map(s => `<label><input type="checkbox" data-m="${f.k}" value="${s}" ${(v || []).includes(s) ? 'checked' : ''}><i>${s}</i></label>`).join('')}</div></div>`;
+  if (f.t === 'img' || f.t === 'imgs') return `<div class="fld"><span>${f.l}</span><div class="imgs" data-img="${f.k}"></div></div>`;
+  return L + `<input data-k="${f.k}" type="${f.t || 'text'}" ${f.t === 'number' ? 'step="0.01" min="0"' : ''} ${f.t === 'range' ? `min="${f.min}" max="${f.max}"` : ''} value="${esc(v)}"></label>`;
+}
+function editor(fields, obj, mount, onSave, extra = '', live = null) {
+  const W = structuredClone(obj);
+  mount.innerHTML = `<div class="ed">${fields.map(f => fld(f, W[f.k])).join('')}<div class="row">${live ? '' : '<button class="btn" data-act="esave">Concluir</button>'}${extra}</div></div>`;
+  const draw = () => $$('[data-img]', mount).forEach(d => {
+    const k = d.dataset.img, m = Array.isArray(W[k]), a = m ? W[k] : W[k] ? [W[k]] : [];
+    d.innerHTML = a.map((s, i) => `<div class="tb"><img src="${s}" alt=""><button type="button" data-rm="${i}" aria-label="Remover">×</button></div>`).join('') + `<label class="add">+ Adicionar imagem<input type="file" accept="image/*" ${m ? 'multiple' : ''} hidden></label>`;
+  });
+  draw();
+  mount.onchange = async e => {
+    if (e.target.type !== 'file') return sync(); const k = e.target.closest('[data-img]').dataset.img;
+    for (const f of e.target.files) { try { const u = await Store.uploadImage(f); Array.isArray(W[k]) ? W[k].push(u) : (W[k] = u); } catch { toast('Imagem inválida', 'err'); } }
+    draw(); sync();
+  };
+  mount.onclick = e => { const b = e.target.closest('[data-rm]'); if (!b) return; const k = b.closest('[data-img]').dataset.img; Array.isArray(W[k]) ? W[k].splice(+b.dataset.rm, 1) : (W[k] = ''); draw(); };
+  const read = () => {
+    fields.forEach(f => {
+      if (f.t === 'img' || f.t === 'imgs') return;
+      if (f.t === 'multi') return W[f.k] = $$(`[data-m="${f.k}"]:checked`, mount).map(x => x.value);
+      const el = $(`[data-k="${f.k}"]`, mount);
+      W[f.k] = f.t === 'chk' ? el.checked : (f.t === 'number' || f.t === 'range') ? parseFloat(el.value) || 0 : el.value.trim();
+    });
+  };
+  const sync = () => { if (live) { read(); live(W); } };
+  EDIT = () => { read(); onSave(W); };
+  mount.oninput = e => { if (e.target.type !== 'file') sync(); };
+}
+const FIELDS = {
+  hero: [{ k: 'heroImg', l: 'Imagem principal', t: 'img' }, { k: 'heroTitle', l: 'Título' }, { k: 'heroSub', l: 'Subtítulo' }, { k: 'heroText', l: 'Texto promocional' }, { k: 'heroBtn', l: 'Texto do botão' }],
+  wa: [{ k: 'whatsapp', l: 'WhatsApp da loja (com DDD, ex.: 55 11 90000-0000)' }, ...(useSB() ? [] : [{ k: 'adminPass', l: 'Senha do painel (apenas protótipo)' }])],
+  foot: [{ k: 'brand', l: 'Nome da loja' }, { k: 'logo', l: 'Logo', t: 'img' }, { k: 'about', l: 'Texto da empresa', t: 'area' }, { k: 'showMap', l: 'Mostrar localização no site (endereço e mapa)', t: 'chk' }, { k: 'address', l: 'Endereço' }, { k: 'phone', l: 'Telefone' }, { k: 'instagram', l: 'Instagram (@usuario ou link)' }, { k: 'maps', l: 'Link do Google Maps' }, { k: 'links', l: 'Outros links (um por linha: Nome|https://...)', t: 'area' }, { k: 'seoDesc', l: 'Descrição para buscadores (SEO)', t: 'area' }],
+  look: [{ k: 'bg', l: 'Cor de fundo', t: 'color' }, { k: 'fg', l: 'Cor do texto', t: 'color' }, { k: 'btn', l: 'Cor dos botões', t: 'color' }, { k: 'btnText', l: 'Cor do texto dos botões', t: 'color' }, { k: 'font', l: 'Fonte', t: 'sel', o: FONTS }, { k: 'fontSize', l: 'Tamanho do texto (px)', t: 'range', min: 14, max: 20 }, { k: 'radius', l: 'Arredondamento (px)', t: 'range', min: 6, max: 36 }, { k: 'blur', l: 'Intensidade do blur (px)', t: 'range', min: 0, max: 40 }]
+};
+const prodFields = () => [{ k: 'name', l: 'Nome' }, { k: 'code', l: 'Código' }, { k: 'desc', l: 'Descrição', t: 'area' }, { k: 'price', l: 'Preço original (R$)', t: 'number' }, { k: 'promo', l: 'Preço promocional (R$, 0 = sem promoção)', t: 'number' },
+  { k: 'cat', l: 'Categoria', t: 'sel', o: S.categories.map(c => [c.id, c.name]) }, { k: 'sub', l: 'Subcategoria' }, { k: 'color', l: 'Cor (várias separadas por vírgula)' }, { k: 'sizes', l: 'Tamanhos', t: 'multi', o: SIZES },
+  { k: 'images', l: 'Fotos', t: 'imgs' }, { k: 'info', l: 'Informação adicional', t: 'area' },
+  { k: 'tags', l: 'Seções', t: 'multi', o: ['Novidade', 'Mais vendido', 'Destaque'] }, { k: 'available', l: 'Disponível para compra', t: 'chk' }, { k: 'active', l: 'Visível na loja', t: 'chk' }];
+const NEWP = () => ({ id: '', code: '', name: '', desc: '', price: 0, promo: 0, cat: (S.categories[0] || {}).id || '', sub: '', color: '', sizes: [], available: true, active: true, images: [], payLink: '', pixQr: '', info: '', tags: [] });
+const TABS = [['dash', 'Dashboard'], ['prod', 'Produtos'], ['cat', 'Categorias'], ['ord', 'Pedidos'], ['hero', 'Página inicial'], ['wa', 'WhatsApp'], ['foot', 'Rodapé'], ['look', 'Aparência']];
+const PREV = '<div class="prev"><span class="o1"></span><span class="o2"></span><div class="glass pv">Prévia do Liquid Glass</div></div>';
+function openAdmin() { DIRTY = false; ADM = true; $('#admin').classList.add('on'); document.body.classList.add('lock'); closeAll(); document.body.classList.add('lock'); adm('dash'); }
+async function loadOrders() {
+  const ab = $('#ab'); let o = [];
+  try { o = await Store.listOrders(ADMPASS); } catch { ab.innerHTML = '<h2>Pedidos</h2><p class="empty">Não foi possível carregar os pedidos.</p>'; return; }
+  if (ATAB !== 'ord') return;
+  ab.innerHTML = '<h2>Pedidos</h2><p class="mut">Os valores abaixo foram registrados na hora da compra. Confira com eles, e não com o que aparece digitado no WhatsApp.</p>' + (o.map(x => `<div class="item" style="display:block"><b>#${esc(x.code || String(x.id).slice(0, 6).toUpperCase())} · ${esc(x.name)}</b> — ${brl(x.total)} <span class="mut">${new Date(x.created || x.date).toLocaleString('pt-BR')}</span>${x.items.map(i => `<p class="mut">${i.qty}× ${esc(i.name)} · ${esc(i.color || '-')} · ${esc(i.size)} · ${brl(i.price)} cada = ${brl(i.price * i.qty)}</p>`).join('')}${x.notes ? `<p class="mut">Obs: ${esc(x.notes)}</p>` : ''}<div class="row"><select data-ost="${esc(x.id)}" style="background:#111;border-radius:999px;padding:8px 14px;border:1px solid var(--line)">${['Novo', 'Pago', 'Enviado', 'Cancelado'].map(s => `<option ${s === x.status ? 'selected' : ''}>${s}</option>`).join('')}</select><button class="btn ghost sm" data-act="odel" data-id="${esc(x.id)}">Excluir</button></div></div>`).join('') || '<p class="empty">Nenhum pedido ainda.</p>');
+}
+function adm(tab, body) {
+  const pr = S.products, st = ATAB === tab && !body ? $('#admin').scrollTop : 0; ATAB = tab;
+  $('#admin').innerHTML = `<div class="adm"><div class="ahead glass"><div class="row" style="justify-content:space-between;margin:0"><b>Painel ${esc(S.settings.brand)}</b><div class="row" style="margin:0"><button class="btn sm ${DIRTY ? 'dirty' : ''}" data-act="savall">Salvar alterações</button><button class="btn ghost sm" data-act="logout">Sair</button></div></div><div class="tabs">${TABS.map(([k, n]) => `<button class="pill ${k === tab ? 'on' : ''}" data-act="tab" data-t="${k}">${n}</button>`).join('')}</div></div><div id="ab"></div></div>`;
+  const ab = $('#ab'), tb = $('.tabs'), on = $('.tabs .on'); tb.scrollLeft = on.offsetLeft - (tb.clientWidth - on.offsetWidth) / 2;
+  if (body) body(ab);
+  else if (tab === 'dash') ab.innerHTML = `<h2>Resumo</h2><div class="stats">${[['Produtos', pr.length], ['Disponíveis', pr.filter(p => p.available).length], ['Indisponíveis', pr.filter(p => !p.available).length], ['Categorias', S.categories.length]].map(([n, v]) => `<div class="stat"><b>${v}</b>${n}</div>`).join('')}</div><p class="mut" style="margin-top:20px">${useSB() ? 'Conectado ao Supabase: ao salvar, as alterações valem para todos.' : 'Supabase não configurado: os dados ficam só neste navegador.'}</p>`;
+  else if (tab === 'prod') ab.innerHTML = `<div class="row"><button class="btn sm" data-act="pnew">Novo produto</button></div><h2>Produtos</h2>` + (pr.map(p => `<div class="item"><div class="g"><div class="t">${pic(p)}</div><div><b>${esc(p.name)}</b><p class="mut">${brl(price(p))} · ${p.active ? 'Visível' : 'Oculto'} · ${p.available ? 'Disponível' : 'Indisponível'}</p></div></div><div class="row">${[['pedit', 'Editar'], ['pdup', 'Duplicar'], ['ptog', p.active ? 'Desativar' : 'Ativar'], ['pav', p.available ? 'Marcar indisponível' : 'Reativar'], ['pdel', 'Excluir']].map(([a, n]) => `<button class="btn ghost sm" data-act="${a}" data-id="${p.id}">${n}</button>`).join('')}</div></div>`).join('') || '<p class="empty">Nenhum produto.</p>');
+  else if (tab === 'cat') ab.innerHTML = `<div id="cn" class="row"><input style="padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:none" id="cname" placeholder="Nova categoria"><button class="btn sm" data-act="cadd">Criar</button></div><h2>Categorias</h2>` + S.categories.map(c => `<div class="item"><input data-cname="${c.id}" value="${esc(c.name)}" aria-label="Nome" style="background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px"><div class="row"><button class="btn ghost sm" data-act="cmv" data-id="${c.id}" data-d="-1">↑</button><button class="btn ghost sm" data-act="cmv" data-id="${c.id}" data-d="1">↓</button><button class="btn ghost sm" data-act="ctog" data-id="${c.id}">${c.active ? 'Desativar' : 'Ativar'}</button><button class="btn ghost sm" data-act="cdel" data-id="${c.id}">Excluir</button></div></div>`).join('');
+  else if (tab === 'ord') { ab.innerHTML = '<h2>Pedidos</h2><p class="mut">Carregando...</p>'; loadOrders(); }
+  else { editor(FIELDS[tab], S.settings, ab, null, '', W => { S.settings = { ...S.settings, ...W }; mark(); render(); }); if (tab === 'look') ab.insertAdjacentHTML('afterbegin', PREV); }
+  $('#admin').scrollTop = st;
+}
+$('#admin').addEventListener('change', e => { const t = e.target; if (t.dataset.ost) Store.setOrder(ADMPASS, t.dataset.ost, t.value).then(() => toast('Status atualizado'), () => toast('Erro ao atualizar o pedido', 'err'));
+  if (t.dataset.cname) { S.categories.find(c => c.id === t.dataset.cname).name = t.value.trim() || 'Sem nome'; mark(); render(); toast('Categoria atualizada'); } });
+function adminActs() {
+  const P_ = id => S.products.find(p => p.id === id), done = (tab, m) => { mark(); render(); adm(tab); m && toast(m); };
+  const edit = p => adm('prod', ab => editor(prodFields(), p, ab, async W => { W.id ? Object.assign(P_(W.id), W) : S.products.unshift({ ...W, id: uid() }); await done('prod', 'Produto salvo'); }, '<button type="button" class="btn ghost" data-act="tab" data-t="prod">Cancelar</button>'));
+  return {
+    cadd: async () => { const n = $('#cname').value.trim(); if (!n) return toast('Digite o nome', 'err'); S.categories.push({ id: uid(), name: n, active: true }); mark(); render(); adm('cat'); toast('Categoria criada'); },
+    logout: () => { const out = () => { ADMPASS = ''; ADM = false; $('#admin').classList.remove('on'); document.body.classList.remove('lock'); }; DIRTY ? ask('Há alterações não salvas. Sair e descartá-las?', async () => { S = await Store.load(); DIRTY = false; render(); out(); }) : out(); },
+    tab: d => adm(d.t), pnew: () => edit(NEWP()), pedit: d => edit(P_(d.id)),
+    pdup: d => { S.products.unshift({ ...structuredClone(P_(d.id)), id: uid(), name: P_(d.id).name + ' (cópia)' }); done('prod', 'Produto duplicado'); },
+    ptog: d => { const p = P_(d.id); p.active = !p.active; done('prod'); }, pav: d => { const p = P_(d.id); p.available = !p.available; done('prod'); },
+    pdel: d => ask('Excluir este produto?', () => { S.products = S.products.filter(p => p.id !== d.id); done('prod', 'Produto excluído'); }),
+    ctog: d => { const c = S.categories.find(c => c.id === d.id); c.active = !c.active; done('cat'); },
+    cdel: d => ask('Excluir esta categoria?', () => { S.categories = S.categories.filter(c => c.id !== d.id); if (F.c === d.id) F.c = 'all'; done('cat', 'Categoria excluída'); }),
+    cmv: d => { const a = S.categories, i = a.findIndex(c => c.id === d.id), j = i + +d.d; if (j < 0 || j >= a.length) return; [a[i], a[j]] = [a[j], a[i]]; done('cat'); },
+    odel: d => ask('Excluir este pedido?', async () => { try { await Store.setOrder(ADMPASS, d.id, '__delete'); toast('Pedido excluído'); loadOrders(); } catch { toast('Erro ao excluir', 'err'); } }),
+    savall: async () => { if (await persist()) { DIRTY = false; const b = $('[data-act=savall]'); b && b.classList.remove('dirty'); toast('Alterações salvas'); } }
+  };
+}
+const refresh = () => { document.documentElement.classList.add('rp'); requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.remove('rp'))); };
+document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
+addEventListener('pageshow', refresh);
+(async () => { S = await Store.load(); render(); if (Store.failed) toast('Não foi possível carregar os dados do Supabase.', 'err'); })();
+</script>
+</body>
+</html>
